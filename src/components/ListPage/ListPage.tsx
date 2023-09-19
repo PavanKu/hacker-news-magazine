@@ -28,6 +28,7 @@ export const ListPage = ({ active }: ListPageProps) => {
             const url = `/api/storyDetailByIds?ids=${ids.join(',')}`;
             const response = await fetch(url);
             const {data:details} = await response.json();
+            //@ts-ignore
             setStoryDetails((stories) => {
                 return stories.concat(details);
             });
@@ -44,6 +45,7 @@ export const ListPage = ({ active }: ListPageProps) => {
     return (
         <div className="container mx-auto flex flex-row flex-wrap py-10">
             {
+                //@ts-ignore
                 storyDetails && storyDetails.map(detail => {
                     return <StoryCard key={detail.id} detail={detail}/>
                 })

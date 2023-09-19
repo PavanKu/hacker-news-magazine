@@ -1,7 +1,10 @@
-"use client"
+"use client";
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Home() {
   const router = useRouter();
-  router.push('/stories/best');
+  useEffect(() => {
+    router.push('/stories/best');
+  }, []);
 }

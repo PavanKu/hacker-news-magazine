@@ -2,6 +2,7 @@ function getPostTime(timestamp: number): string {
     const date = new Date(timestamp*1000);
     return date.toDateString();
 }
+//@ts-ignore
 export const Card = ({detail}) =>  {
     return (
         <a href={detail.url} target="_blank" className="max-w-xs overflow-hidden rounded-lg bg-white shadow mr-5 mb-5">
