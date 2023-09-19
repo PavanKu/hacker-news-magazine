@@ -42,6 +42,7 @@ export async function GET(
                 ogs({ url: detail.url })
                 .then((data) => {
                     const { error, html, result, response } = data;
+                    console.log('========Resolved==========');
                     if(error) {
                         reject({ message: `Unable to fetch open-graph values for ${detail.url}`});
                     } else if(result.success){
@@ -50,6 +51,10 @@ export async function GET(
                     } else {
                         reject({ message: `Unable to fetch open-graph values for ${detail.url}`});
                     }
+                })
+                .catch((data) => {
+                  console.log('========Error========');
+                  reject({ message: `Unable to fetch open-graph values for ${detail.url}`});
                 });
             })
         } else {

@@ -31,7 +31,7 @@ export const ListPage = ({ active }: ListPageProps) => {
             setStoryDetails((stories) => {
                 return stories.concat(details);
             });
-            setOffset(offset+BUCKET_SIZE);
+            // setOffset(offset+BUCKET_SIZE);
         }
         if(storyIds && storyIds.length>0) {
             const ids = storyIds.slice(offset, offset+BUCKET_SIZE);
@@ -39,15 +39,15 @@ export const ListPage = ({ active }: ListPageProps) => {
                 fetchStoryDetails(ids);
             }
         }
-    }, [storyIds]);
+    }, [storyIds, offset]);
 
     return (
-        <>
+        <div className="container mx-auto flex flex-row flex-wrap py-10">
             {
                 storyDetails && storyDetails.map(detail => {
                     return <StoryCard key={detail.id} detail={detail}/>
                 })
             }
-        </>
+        </div>
     );
 }

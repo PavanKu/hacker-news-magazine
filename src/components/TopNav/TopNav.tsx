@@ -17,8 +17,8 @@ export const TopNav = ({items, active}:TopNavProps) => {
     const getURL = (val: string): string => `/stories/${val}`;
 
     return (
-        <div className="overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-1">
-            <ul className="flex items-center gap-2 text-sm font-medium">
+        <div className="sticky top-0 overflow-hidden rounded-b-md border border-gray-100 bg-gray-50 p-2">
+            <ul className="flex items-center justify-center gap-2 text-sm font-medium">
                 {items.map((item) => {
                     const {label, value} = item;
                     return (

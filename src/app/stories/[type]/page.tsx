@@ -7,17 +7,20 @@ const navItems: Item[] = [
     { label: "Best", value: "best" },
     { label: "Top", value: "top" },
     { label: "New", value: "new" },
+    { label: "Ask", value: "ask" },
+    { label: "Show", value: "show" },
+    { label: "Jobs", value: "job" },
   ];
 
 type StoryListPageProps = {
     params: {type: string},
 }
 export default function StoryListPage({ params }: StoryListPageProps) {
-    const active = params.type;
+    const storyType = params.type;
     return (
-        <>
-            <TopNav items={navItems} active={active}/>
-            <ListPage active={active}/>
-        </>
+        <main>
+            <TopNav items={navItems} active={storyType}/>
+            <ListPage active={storyType}/>
+        </main>
     );
 }
